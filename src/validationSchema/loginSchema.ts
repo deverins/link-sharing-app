@@ -2,12 +2,12 @@ import * as Yup from 'yup';
 
 export const loginSchema = Yup.object({
   email: Yup.string()
-    .required('Email is required')
+    .required(`Can't be empty`)
     .email('Invalid email address'),
   password: Yup.string()
-    .required('Password is required')
+    .required('Please check again')
     .matches(
       /^[a-zA-Z0-9]{8,}$/,
-      'Password must be at least 8 characters long and contain only letters and numbers'
+      'Password must be at least 8 characters long'
     ),
 });
