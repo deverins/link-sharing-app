@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 import "./globals.css";
 import { Instrument_Sans } from 'next/font/google';
 
@@ -20,7 +20,11 @@ type MainLayoutProps = {
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <html lang="en">
-      <body className={instrumentSans.className}>{children}</body>
+      <body className={instrumentSans.className}>
+        <main className='mx-10'>
+        {children}
+        </main>
+        </body>
     </html>
   );
 };
