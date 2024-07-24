@@ -1,17 +1,40 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import NavBar from "@/Components/navfolder/NavBar";
 
-function ProfileDetails() {
+const ProfileDetails = () => {
   const [profileImage, setProfileImage] = useState<File | null>(null);
   const [previewImage, setPreviewImage] = useState<string | ArrayBuffer | null>(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [buttonWidth, setButtonWidth] = useState<string>("w-full");
   const router = useRouter();
+
+  useEffect(() => {
+    // Update button width based on window size
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setButtonWidth("w-full");
+      } else {
+        setButtonWidth("w-auto");
+      }
+    };
+
+    // Set initial button width
+    handleResize();
+
+    // Add event listener for resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files ? e.target.files[0] : null;
@@ -49,7 +72,7 @@ function ProfileDetails() {
       <div>
         <NavBar />
         <main className="p-[16px]">
-          <div className="p-[24px]  w-full max-w-md mx-auto flex flex-col md:max-w-3xl">
+          <div className="p-[24px] w-full max-w-md mx-auto flex flex-col md:max-w-3xl">
             <h1 className="text-[14px] xl:text-[24px] md:text-[20px] lg:text-[24px] sm:text-[18px] font-bold leading-[36px]">
               Profile Details
             </h1>
@@ -75,7 +98,7 @@ function ProfileDetails() {
                       onClick={() => document.getElementById("profileImageInput")?.click()}
                     >
                       <Image
-                        src="/uploadImage.svg"
+                        src="/images/profile/uploadImage.svg"
                         alt="Upload Image"
                         width="40"
                         height="40"
