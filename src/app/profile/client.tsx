@@ -1,37 +1,47 @@
 "use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import NavBar from "@/Components/navfolder/NavBar";
 
 function ProfileDetails() {
-  const [profileImage, setProfileImage] = useState(null);
-  const [previewImage, setPreviewImage] = useState(null);
+  const [profileImage, setProfileImage] = useState<File | null>(null);
+  const [previewImage, setPreviewImage] = useState<string | ArrayBuffer | null>(null);
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const router = useRouter();
 
-  const handleImageUpload = (e) => {
-    const file = e.target.files[0];
-    setProfileImage(file);
-    const reader = new FileReader();
-    reader.onloadend = () => {
-      setPreviewImage(reader.result);
-    };
-    reader.readAsDataURL(file);
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    if (file) {
+      setProfileImage(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const handleSave = () => {
-    const userDetails = {
-      profileImage,
-      firstName,
-      lastName,
-      email,
-      previewImage,
-    };
-    localStorage.setItem("userDetails", JSON.stringify(userDetails));
-    router.push("/preview");
+    if (firstName || lastName || email || profileImage) {
+      const userDetails = {
+        profileImage,
+        firstName,
+        lastName,
+        email,
+        previewImage,
+      };
+      localStorage.setItem("userDetails", JSON.stringify(userDetails));
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setProfileImage(null);
+      setPreviewImage(null);
+      router.push("/preview");
+    }
   };
 
   return (
@@ -39,14 +49,14 @@ function ProfileDetails() {
       <div>
         <NavBar />
         <main className="p-[16px]">
-          <div className="p-[24px]">
-            <h1 className="text-[24px] font-bold leading-[36px]">
-              Product Details
+          <div className="p-[24px]  w-full max-w-md mx-auto flex flex-col md:max-w-3xl">
+            <h1 className="text-[14px] xl:text-[24px] md:text-[20px] lg:text-[24px] sm:text-[18px] font-bold leading-[36px]">
+              Profile Details
             </h1>
             <p className="text-[16px] text-linkPageCustomizeText font-normal leading-[24px] mb-[40px]">
               Add your details to create a personal touch to your profile.
             </p>
-            <div className="bg-[#FAFAFA] p-2 w-full max-w-md flex flex-col rounded-lg shadow-md md:max-w-3xl">
+            <div className="bg-[#FAFAFA] p-2 w-full max-w-md mx-auto flex flex-col rounded-lg shadow-md md:max-w-3xl">
               <div className="p-[20px] bg-bgColor mb-[24px] flex flex-wrap justify-between">
                 <p className="text-[16px] font-normal leading-[24px] mb-[40px]">
                   Profile picture
@@ -55,20 +65,17 @@ function ProfileDetails() {
                 <div className="profilePicture mb-[16px]">
                   {previewImage ? (
                     <img
-                      src={previewImage}
+                      src={previewImage as string}
                       alt="Profile Preview"
                       className="rounded-full w-[104px] h-[104px] object-cover"
                     />
                   ) : (
                     <div
                       className="rounded-md w-[193px] h-[193px] flex flex-col bg-[#EFEBFF] items-center justify-center cursor-pointer"
-                      onClick={() =>
-                        document.getElementById("profileImageInput").click()
-                      }
+                      onClick={() => document.getElementById("profileImageInput")?.click()}
                     >
-                      
                       <Image
-                        src="/images/profile/uploadImage.svg"
+                        src="/uploadImage.svg"
                         alt="Upload Image"
                         width="40"
                         height="40"
@@ -77,16 +84,16 @@ function ProfileDetails() {
                     </div>
                   )}
                   <div className="flex">
-                  <input
-                    type="file"
-                    accept="image/*"
-                    id="profileImageInput"
-                    onChange={handleImageUpload}
-                    className="hidden"
-                  />
-                  <div className="text-[12px] text-linkPageCustomizeText font-normal leading-[18px] mb-[40px]">
-                    Image must be below 1024x1024px. Use PNG or JPG format.
-                  </div>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      id="profileImageInput"
+                      onChange={handleImageUpload}
+                      className="hidden"
+                    />
+                    <div className="text-[12px] text-linkPageCustomizeText font-normal leading-[18px] mb-[40px]">
+                      Image must be below 1024x1024px. Use PNG or JPG format.
+                    </div>
                   </div>
                 </div>
               </div>
@@ -142,14 +149,16 @@ function ProfileDetails() {
                 </div>
               </form>
             </div>
-            <div className="p-[16px] border-t border-t-1 border-saveborder">
+            <div className="p-4 border-t border-t-1 border-saveborder">
+              <div className="flex justify-end md:justify-end">
               <button
                 type="button"
-                className="w-full font-semibold py-[11px] px-[27px] bg-[#633CFF] text-white rounded-md"
+                className={`font-semibold py-[11px] px-[27px] bg-[#633CFF] text-white rounded-md ${window.innerWidth <= 768 ? 'w-full' : 'w-auto'}`}
                 onClick={handleSave}
               >
                 Save
               </button>
+              </div>
             </div>
           </div>
         </main>

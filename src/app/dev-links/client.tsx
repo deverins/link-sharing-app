@@ -1,4 +1,5 @@
 "use client";
+
 import CustomDropdown from "@/Components/customDropDown";
 import NavBar from "@/Components/navfolder/NavBar";
 import Image from "next/image";
@@ -12,6 +13,7 @@ interface LinkType {
 function DevLinks() {
   const [links, setLinks] = useState<LinkType[]>([]);
   const [buttonColor, setButtonColor] = useState("#EFEBFF");
+  const [message, setMessage] = useState<string | null>(null);
 
   const handleAddLink = () => {
     setLinks([...links, { platform: "", url: "" }]);
@@ -39,8 +41,14 @@ function DevLinks() {
   };
 
   const handleSave = () => {
-    localStorage.setItem("userLinks", JSON.stringify(links));
-    alert("Links saved successfully!");
+    try {
+      localStorage.setItem("userLinks", JSON.stringify(links));
+      setMessage("Links saved successfully!");
+      setTimeout(() => setMessage(null), 3000);
+    } catch (error) {
+      setMessage("Failed to save links. Please try again.");
+      setTimeout(() => setMessage(null), 3000);
+    }
   };
 
   return (
@@ -56,6 +64,13 @@ function DevLinks() {
               <p className="text-base text-linkPageCustomizeText font-normal leading-6 mb-10">
                 Add/edit/remove links below and then share all your profiles with the world!
               </p>
+
+              {message && (
+                <div className={`text-base font-medium mb-4 ${message.startsWith("Failed") ? "text-red-600" : "text-green-700 text-bold"}`}>
+                  {message}
+                </div>
+              )}
+
               <button
                 className="w-full flex justify-center gap-2 items-center py-2 px-6 border border-[#633CFF] text-[#633CFF] hover:bg-[#EFEBFF] rounded-lg font-semibold mb-6"
                 onClick={handleAddLink}
