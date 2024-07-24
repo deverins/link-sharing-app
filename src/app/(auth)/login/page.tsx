@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useFormik } from 'formik';
 import Link from 'next/link';
-import { loginSchema } from '@/validationSchema/loginSchema';
 import { useAuthStore } from '@/zustand/store';
 import logo from '@/img/logo.png';
+import { loginSchema } from '@/validationSchema/loginSchema';
 
 const Login = () => {
   const { email, password, setEmail, setPassword } = useAuthStore();
@@ -37,7 +37,7 @@ const Login = () => {
     <main className="flex flex-col items-center justify-center min-h-screen px-4 py-8">
       <div className="flex flex-col items-center w-full max-w-md">
         <div className="flex items-center space-x-2 mb-12">
-          <Image src={logo} alt="logo" width={32} height={32} className="w-8 h-8 sm:w-6 sm:h-6" />
+          <Image src="/logo.svg" alt="logo" width={32} height={32} className="w-8 h-8 sm:w-6 sm:h-6" />
           <span className="text-[#333333] text-4xl font-bold sm:text-3xl">devLinks</span>
         </div>
         <div className="w-full bg-white p-6 rounded-lg lg:shadow sm:shadow-none">

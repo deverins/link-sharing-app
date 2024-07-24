@@ -1,10 +1,12 @@
 "use client"
+import NavBar from '@/Components/navfolder/NavBar'
 import React from 'react'
 
 const DevLinks = () => {
   return (
     <>
-      <div>DevLinks</div>
+      <NavBar />
+      <div className='text-white'>DevLinks</div>
     </>
   )
 }
