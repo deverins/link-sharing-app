@@ -21,7 +21,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <html lang="en">
       <body className={instrumentSans.className}>
-        <main className='mx-10'>
+        <main>
         {children}
         </main>
         </body>

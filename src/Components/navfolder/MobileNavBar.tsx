@@ -6,13 +6,15 @@ const MobileNavBar: React.FC = () => {
   const [active, setActive] = useState("links");
 
   return (
-    <nav className="flex justify-between items-center py-[16px] pl-[24px] pr-[16px]">
+    <nav className="flex justify-between items-center py-[16px] mx-6">
+      <Link href={'/dev-links'}>
       <Image
         src="/logo.svg"
         alt="logo"
         width={32}
         height={32}
       />
+      </Link>
       <div
         onClick={() => setActive("links")}
         className={`rounded-xl cursor-pointer ${active === "links" ? "bg-[#EFEBFF] text-[#633CFF] py-[11px] px-[20px] rounded-[8px]" : "text-[#737373]"}`}

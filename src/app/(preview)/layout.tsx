@@ -10,10 +10,10 @@ const PreviewLayout = ({ children }: PreviewLayoutProps) => {
   return (
     <>
       <main>
-        <div>
+        <div className=''>
           <PreviewNav />
         </div>
-        <div className="flex-grow container mx-auto p-4">
+        <div className="mx-10">
           {children}
         </div>
       </main>

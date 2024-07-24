@@ -9,10 +9,12 @@ const DesktopNavBar: React.FC = () => {
 
     return (
         <div className='flex justify-between items-center'>
+                <Link href={'/dev-links'}>
             <div className="flex gap-1.5">
-                <Image src="/logo.svg" alt="logo" width={32} height={32} />
-                <span className="text-[#333333] text-4xl font-bold">devlinks</span>
+                    <Image src="/logo.svg" alt="logo" width={32} height={32} />
+                    <span className="text-[#333333] text-4xl font-bold">devlinks</span>
             </div>
+                </Link>
 
             <div className="flex gap-4">
                 <div 
@@ -20,7 +22,9 @@ const DesktopNavBar: React.FC = () => {
                     className={`flex items-center py-3 px-7 gap-2 max-h-[49px] rounded-xl cursor-pointer ${active === "links" ? "bg-[#EFEBFF] text-[#633CFF]" : "text-[#737373]"}`}
                 >
                     <Image className="w-5 h-5" src={`${active === "links" ? "/link-active.svg" : "/link.svg"}`} alt="logo" width={20} height={20} />
-                    <span className="text-base font-semibold">Links</span>
+                    <span className="text-base font-semibold">
+                        <Link href={'/dev-links'}>Link</Link>
+                    </span>
                 </div>
                 <div 
                     onClick={() => setActive("profile")} 
