@@ -1,9 +1,17 @@
 "use client"
-import React from "react";
-import DesktopNavBar from "./DesktopNavbar";
+import React, { useEffect, useState } from "react";
 import MobileNavBar from "./MobileNavBar";
+import DesktopNavBar from "./DesktopNavbar";
 
 const NavBar: React.FC = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
     <>
       <div className="hidden md:block">

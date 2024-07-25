@@ -4,7 +4,6 @@ import CustomDropdown from "@/Components/customDropDown";
 import NavBar from "../../Components/navfolder/NavBar";
 import Image from "next/image";
 import React, { useState } from "react";
-import DesktopNavBar from "@/Components/navfolder/DesktopNavbar";
 
 interface LinkType {
   platform: string;
@@ -54,9 +53,8 @@ function DevLinks() {
 
   return (
     <>
-      {/* <NavBar /> */}
-      <DesktopNavBar />
-      <div className="min-h-screen flex flex-col">
+      <NavBar />
+      <section className="min-h-screen flex flex-col">
         <main className="flex flex-1 items-center justify-center p-4 md:p-16">
           <div className="w-full max-w-md flex flex-col p-4 bg-white rounded-lg shadow-md md:max-w-3xl">
             <div className="w-full p-6 flex flex-col items-start justify-center rounded-lg">
@@ -146,7 +144,7 @@ function DevLinks() {
             </div>
           </div>
         </main>
-      </div>
+      </section>
     </>
   );
 }

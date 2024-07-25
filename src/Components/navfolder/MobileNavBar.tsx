@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,12 +9,12 @@ const MobileNavBar: React.FC = () => {
   return (
     <nav className="flex justify-between items-center py-[16px] mx-6">
       <Link href={'/dev-links'}>
-      <Image
-        src="/logo.svg"
-        alt="logo"
-        width={32}
-        height={32}
-      />
+        <Image
+          src="/logo.svg"
+          alt="logo"
+          width={32}
+          height={32}
+        />
       </Link>
       <div
         onClick={() => setActive("links")}

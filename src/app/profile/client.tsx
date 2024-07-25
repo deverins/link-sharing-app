@@ -12,20 +12,16 @@ const ProfileDetails = () => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [buttonWidth, setButtonWidth] = useState<string>("w-full");
+  const [mounted, setMounted] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
-    // Update button width based on window size
+    setMounted(true);
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
-        setButtonWidth("w-full");
-      } else {
-        setButtonWidth("w-auto");
-      }
+      setButtonWidth(window.innerWidth <= 768 ? "w-full" : "w-auto");
     };
 
     handleResize();
-
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -64,10 +60,14 @@ const ProfileDetails = () => {
     }
   };
 
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <>
+      <NavBar />
       <div>
-        <NavBar />
         <main className="p-[16px]">
           <div className="p-[24px] w-full max-w-md mx-auto flex flex-col md:max-w-3xl">
             <h1 className="text-[14px] xl:text-[24px] md:text-[20px] lg:text-[24px] sm:text-[18px] font-bold leading-[36px]">
@@ -185,6 +185,6 @@ const ProfileDetails = () => {
       </div>
     </>
   );
-}
+};
 
 export default ProfileDetails;
