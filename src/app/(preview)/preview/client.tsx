@@ -80,7 +80,7 @@ function PreviewPage() {
   const { profileImage, firstName, lastName, email, previewImage, links } = userDetails;
 
   if (!profileImage && !firstName && !lastName && !email && !previewImage) {
-    return <p>Loading...</p>;
+    return <p className="text-center text-[#633CFF] text-2xl mt-8">Loading...</p>;
   }
 
   return (
