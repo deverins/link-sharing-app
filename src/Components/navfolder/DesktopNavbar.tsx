@@ -21,7 +21,14 @@ const DesktopNavBar: React.FC = () => {
                     onClick={() => setActive("links")} 
                     className={`flex items-center py-3 px-7 gap-2 max-h-[49px] rounded-xl cursor-pointer ${active === "links" ? "bg-[#EFEBFF] text-[#633CFF]" : "text-[#737373]"}`}
                 >
-                    <Image className="w-5 h-5" src={`${active === "links" ? "/link-active.svg" : "/link.svg"}`} alt="logo" width={20} height={20} />
+                    <Image 
+                    className="h-5 w-auto" 
+                    src={`${active === "links" ? "/link-active.svg" : "/link.svg"}`} 
+                    alt="logo"
+                    width={20}
+                    height={20}
+                    layout="responsive"
+                />
                     <span className="text-base font-semibold">
                         <Link href={'/dev-links'}>Link</Link>
                     </span>

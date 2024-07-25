@@ -84,13 +84,13 @@ function PreviewPage() {
   }
 
   return (
-    <div className="">  
+    <div className="">
       <main className="w-full h-auto absolute top-56 flex flex-col justify-center items-center gap-[56px]">
         <div className="w-[237px] flex flex-col justify-center items-center bg-white shadow-sm border border-[#f8f6f6] rounded-[24px] py-10 px-2">
           <div className="flex flex-col justify-center items-center mb-[56px] top-0">
             <div className="rounded-full w-[110px] h-[110px] mb-[25px] border border[#633CFF] ">
               {previewImage ? (
-                <img
+                <Image
                   src={previewImage}
                   alt="Profile"
                   className="w-[110px] h-[110px] rounded-full"
@@ -101,7 +101,9 @@ function PreviewPage() {
                   alt="man"
                   width="113"
                   height="112"
+                  priority
                 />
+
               )}
             </div>
             <h1 className="text-[32px] font-bold leading-[48px] mb-[8px]">
@@ -119,9 +121,8 @@ function PreviewPage() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-full flex items-center gap-2 p-4 rounded-lg shadow-md text-white ${
-                  platformColors[link.platform]
-                } hover:opacity-90 transition`}
+                className={`w-full flex items-center gap-2 p-4 rounded-lg shadow-md text-white ${platformColors[link.platform]
+                  } hover:opacity-90 transition`}
               >
                 {platformIcons[link.platform]}
                 <span className="mr-auto ">{link.platform}</span>
