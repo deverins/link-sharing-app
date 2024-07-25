@@ -98,7 +98,7 @@ const ProfileDetails = () => {
                       onClick={() => document.getElementById("profileImageInput")?.click()}
                     >
                       <Image
-                        src="/images/profile/uploadImage.svg"
+                        src="/uploadImage.svg"
                         alt="Upload Image"
                         width="40"
                         height="40"
@@ -174,13 +174,13 @@ const ProfileDetails = () => {
             </div>
             <div className="p-4 border-t border-t-1 border-saveborder">
               <div className="flex justify-end md:justify-end">
-              <button
-                type="button"
-                className={`font-semibold py-[11px] px-[27px] bg-[#633CFF] text-white rounded-md ${window.innerWidth <= 768 ? 'w-full' : 'w-auto'}`}
-                onClick={handleSave}
-              >
-                Save
-              </button>
+                <button
+                  type="button"
+                  className={`font-semibold py-[11px] px-[27px] bg-[#633CFF] text-white rounded-md ${buttonWidth}`}
+                  onClick={handleSave}
+                >
+                  Save
+                </button>
               </div>
             </div>
           </div>

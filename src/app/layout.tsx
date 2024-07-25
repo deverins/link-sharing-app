@@ -1,12 +1,6 @@
 import { Metadata } from 'next';
 import { ReactNode, Suspense } from 'react';
 import "./globals.css";
-import { Instrument_Sans } from 'next/font/google';
-
-const instrumentSans = Instrument_Sans({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-});
 
 export const metadata: Metadata = {
   title: "link sharing app",
@@ -20,7 +14,7 @@ type MainLayoutProps = {
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
     <html lang="en">
-      <body className={instrumentSans.className}>
+      <body className=''>
         <main>
         {children}
         </main>

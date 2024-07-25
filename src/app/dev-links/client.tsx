@@ -120,13 +120,13 @@ function DevLinks() {
               ) : (
                 <div className="flex justify-center w-full max-w-[688px] h-auto">
                   <div className="w-full h-0 relative pb-[50%]">
-                    <Image
-                      src="/started-img.png"
-                      alt="mail"
-                      layout="fill"
-                      objectFit="contain"
-                      className="rounded-lg"
-                    />
+                  <Image
+    src="/started-img.png"
+    alt="started"
+    fill
+    style={{ objectFit: 'contain' }}
+    className="rounded-lg"
+  />
                   </div>
                 </div>
               )}
