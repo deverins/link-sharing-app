@@ -1,7 +1,7 @@
 "use client";
 
 import CustomDropdown from "@/Components/customDropDown";
-import NavBar from "@/Components/navfolder/NavBar";
+import NavBar from "../../Components/navfolder/NavBar";
 import Image from "next/image";
 import React, { useState } from "react";
 
