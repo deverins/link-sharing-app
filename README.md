@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🌐 Devlinks Link Sharing App
 
-## Getting Started
+Welcome to **Devlinks**, a fullstack application developed using **Next.js**, **Firebase**, and **TailwindCSS**. This project is part of HNG Task 5, aimed at building efficiency and enhancing skills.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Fully Responsive Design** 📱: Ensures an optimal viewing experience across all devices.
+- **User Authentication & Profile Management** 🔐: Supports user login, registration, and profile information storage.
+- **Realtime Database Integration** ⚡: Enables instant communication and securely stores all changes in the database.
+- **Optimized SSR and CSR** 🚀: Implements Server-Side Rendering (SSR) and Client-Side Rendering (CSR) for the best performance.
+- **Enhanced User Interaction** 🎨: Incorporates design initiatives to improve user engagement where necessary.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📄 Project Description
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Devlinks allows users to create personalized profiles, manage links, and customize their profiles with ease. The application features:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Profile Creation**: Users can add and update their personal information, including name, surname, profile picture, and email address.
+- **Link Management**: Users can add, remove, and rearrange their links using a drag-and-drop interface.
+- **Preview Mode**: Users can preview their profiles and modifications live via a unique URL by clicking the "Preview" button.
+- **Sharing**: Users can share their personalized link with the world by clicking the "Share Link" button on the preview page.
 
-## Learn More
+## 🚀 Getting Started
 
-To learn more about Next.js, take a look at the following resources:
+To get started with Devlinks, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the Repository**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   git clone https://github.com/YeeshaDev/link-sharing-task.git
+   cd link-sharing-task
+   ```
 
-## Deploy on Vercel
+2. **Install Dependencies**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm install
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. **Set Up Firebase**:
+
+   - Create a Firebase project.
+   - Add your Firebase configuration to a `.env` file.
+
+4. **Run the Application**:
+   ```bash
+   npm run dev
+   ```
+
+## 🎥 Preview
+
+![App Preview](https://res.cloudinary.com/debgkcg8v/image/upload/v1721844774/Desktop_-_Empty_-_Active_jdxefi.png)
+![App Preview](https://res.cloudinary.com/debgkcg8v/image/upload/v1721844750/Desktop_-_Profile_-_Active_vgkgph.jpg)
+![App Preview](https://res.cloudinary.com/debgkcg8v/image/upload/v1721844738/Desktop_-_Preview_-_Active_wkvgzt.png)

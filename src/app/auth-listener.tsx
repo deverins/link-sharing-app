@@ -1,6 +1,6 @@
 'use client'
 
-import { auth } from '@/firebase-config'
+import { auth } from '../../firebase-config'
 import { useRouter } from 'next/navigation'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import Loading from '@/components/UI/loading/loading'
