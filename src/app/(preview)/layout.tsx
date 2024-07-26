@@ -1,5 +1,4 @@
 import { Instrument_Sans } from 'next/font/google'
-import { Suspense } from 'react'
 import '../globals.css'
 import PreviewHeader from '@/components/header/preview-header'
 import { Toaster } from 'react-hot-toast'

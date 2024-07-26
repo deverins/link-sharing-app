@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import smallLogo from '../../../assets/images/logo-devlinks-small.svg'
+import smallLogo from '../../../imgs/logo-devlinks-small.svg'
 
 function LinkContainerSkeleton() {
   return (

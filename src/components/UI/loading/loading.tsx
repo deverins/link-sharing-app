@@ -5,7 +5,7 @@ function Loading() {
     <div className="h-screen w-full flex items-center justify-center">
       <div className="animate-pulse">
         <Image
-          src="/images/logo-devlinks-small.svg"
+          src="../../../imgs/logo-devlinks-small.svg"
           alt="loading"
           width={62}
           height={62}

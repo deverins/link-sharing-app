@@ -29,7 +29,7 @@ const DisplayUserProfile: React.FC<DisplayUserProfileProps> = ({ profile }) => {
             <div className="opacity-25">
               <Image
                 className="rounded-full"
-                src="/images/logo-devlinks-small.svg"
+                src="../../../imgs/logo-devlinks-small.svg"
                 alt="devlinks logo"
                 height={40}
                 width={40}

@@ -2,8 +2,8 @@ import React from 'react'
 import { Instrument_Sans } from 'next/font/google'
 import '../globals.css'
 import { Toaster } from 'react-hot-toast'
-import LandingHeader from '../../components/header/default-header'
-import Main from '../../components/main/main'
+import LandingHeader from '@/components/header/default-header'
+import Main from '@/components/main/main'
 
 const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
