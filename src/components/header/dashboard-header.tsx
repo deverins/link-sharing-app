@@ -14,7 +14,7 @@ export default function DashboardHeader() {
         {/* sm logo */}
         <Link href="/" className="md:hidden">
           <Image
-            src="/images/logo-devlinks-small.svg"
+            src="/imgs/logo-devlinks-small.svg"
             alt="devlinks logo"
             width={42}
             height={42}
