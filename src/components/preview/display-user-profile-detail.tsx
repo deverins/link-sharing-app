@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import Imag from '../../imgs/logo-devlinks-small.svg'
+
 
 interface Profile {
   profile_picture?: string
@@ -29,7 +31,7 @@ const DisplayUserProfile: React.FC<DisplayUserProfileProps> = ({ profile }) => {
             <div className="opacity-25">
               <Image
                 className="rounded-full"
-                src="../../../imgs/logo-devlinks-small.svg"
+                src={Imag}
                 alt="devlinks logo"
                 height={40}
                 width={40}

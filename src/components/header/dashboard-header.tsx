@@ -5,6 +5,8 @@ import Tabs from '../UI/tabs/tabs'
 import Image from 'next/image'
 import PreviewIcon from '../UI/icons/preview'
 import { useAuthContext } from '@/app/auth-listener'
+import Imag from '../../imgs/logo-devlinks-small.svg'
+
 
 export default function DashboardHeader() {
   const { user } = useAuthContext()
@@ -14,7 +16,7 @@ export default function DashboardHeader() {
         {/* sm logo */}
         <Link href="/" className="md:hidden">
           <Image
-            src="/imgs/logo-devlinks-small.svg"
+          src={Imag}
             alt="devlinks logo"
             width={42}
             height={42}
