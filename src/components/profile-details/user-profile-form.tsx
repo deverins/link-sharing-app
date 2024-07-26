@@ -6,7 +6,8 @@ import ProfileInputGroup from './profile-input-group'
 import { useUserProfileContext } from '@/context/user-profile-context'
 import UserProfileDetailSkeleton from '../UI/loading/user-profile-detail-skeleton'
 
-function UserProfileForm() {
+const UserProfileForm = () =>
+   {
   const { handleSubmit, buttonDisabled, loading } = useUserProfileContext()
 
   return (
